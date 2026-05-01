@@ -1,16 +1,70 @@
 # stocks_watchlist_app
 
-A new Flutter project.
+# 📈 Stocks Watchlist App (Flutter + BLoC)
 
-## Getting Started
+A Flutter-based watchlist application that allows users to:
+- View multiple watchlists
+- Reorder stocks using drag-and-drop
+- Delete stocks
+- Maintain state using BLoC architecture
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 📊 Multiple watchlists (Tab-based)
+- 🔄 Reorder stocks (ReorderableListView)
+- ❌ Delete stocks
+- 🎯 Clean UI inspired by trading apps
+- 🧠 State management using BLoC
+- 💾 Local in-memory data (no APIs)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🏗️ Architecture
+
+This project follows **BLoC Architecture**:
+lib/
+├── bloc/
+│ ├── watchlist_bloc.dart
+│ ├── watchlist_event.dart
+│ ├── watchlist_state.dart
+│
+├── model/
+│ └── stock.dart
+│
+├── screens/
+│ ├── home_page.dart
+│ └── edit_watchlist_screen.dart
+│
+└── main.dart
+
+
+---
+
+## 🔄 State Management
+
+- `WatchlistBloc` handles:
+  - LoadWatchlists
+  - ChangeTab
+  - ReorderStocks
+  - DeleteStock
+
+---
+
+## 🎯 Key Implementation Details
+
+### 🔹 Reordering
+- Implemented using `ReorderableListView`
+- Used `ReorderableDragStartListener` for better UX
+- Disabled default drag handles
+
+### 🔹 Data Structure
+- Watchlists stored as:
+```dart
+Map<int, List<Stock>>
+
+🔹 UI
+Custom stock tile
+Dynamic price coloring (green/red)
+Pixel-aligned UI based on trading apps
